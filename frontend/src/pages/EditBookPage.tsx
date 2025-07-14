@@ -67,7 +67,14 @@ const EditBookPage = () => {
   const onSubmit = async (values: BookFormValues) => {
     if (!id) return;
     try {
-      await updateBook({ id, data: values }).unwrap();
+      await updateBook({
+        id,
+        data: {
+          ...values,
+          copies: Number(values.copies), // ✅ ensure it's number
+        },
+      }).unwrap();
+
       toast.success('Book updated successfully!');
       navigate(`/books/${id}`);
     } catch (e) {
@@ -75,6 +82,7 @@ const EditBookPage = () => {
       toast.error('Failed to update book.');
     }
   };
+
 
   if (isLoading) return <div>Loading book data...</div>;
   if (error) return <div>Error loading book data.</div>;
@@ -174,7 +182,12 @@ const EditBookPage = () => {
               <FormItem>
                 <FormLabel>Copies</FormLabel>
                 <FormControl>
-                  <Input type="number" min={0} {...field} />
+                  <Input
+                    type="number"
+                    min={0}
+                    value={field.value}
+                    onChange={(e) => field.onChange(Number(e.target.value))} // ✅ coerce to number
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>

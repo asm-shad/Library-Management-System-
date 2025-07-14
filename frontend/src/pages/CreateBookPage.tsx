@@ -38,7 +38,12 @@ const CreateBookPage = () => {
 
   const onSubmit = async (data: BookFormValues) => {
     try {
-      await addBook(data).unwrap()
+      const preparedData = {
+        ...data,
+        copies: Number(data.copies), // 👈 ensure it's a number
+      }
+
+      await addBook(preparedData).unwrap()
       toast.success('Book created successfully!')
       navigate('/books')
     } catch (error) {
@@ -142,7 +147,12 @@ const CreateBookPage = () => {
               <FormItem>
                 <FormLabel>Copies</FormLabel>
                 <FormControl>
-                  <Input type="number" min={0} {...field} />
+                  <Input
+                    type="number"
+                    min={0}
+                    value={field.value}
+                    onChange={(e) => field.onChange(Number(e.target.value))}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
