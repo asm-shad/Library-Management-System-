@@ -5,7 +5,7 @@ export default function Navbar() {
   const { pathname } = useLocation()
   const routes = [
     { path: '/', name: 'Books' },
-    { path: '/add-book', name: 'Add Book' },
+    { path: '/create-book', name: 'Add Book' },
     { path: '/borrow-summary', name: 'Borrow Summary' },
   ]
 
