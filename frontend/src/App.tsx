@@ -1,11 +1,11 @@
-import './App.css'
+import { BrowserRouter } from 'react-router-dom'
+import AppRoutes from './routes/Routes'
 
 function App() {
-
   return (
-    <>
-      <h2 className='text-5xl font-bold'>Library Management System</h2>
-    </>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   )
 }
 

@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { BookFormValues } from '@/types/api';
+import type { BookFormValues } from '@/types/api';
 import { bookSchema } from '@/validations/book';
 import { Button } from '@/components/ui/button';
 import {

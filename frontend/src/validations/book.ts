@@ -7,5 +7,5 @@ export const bookSchema = z.object({
   isbn: z.string().min(10, 'ISBN must be at least 10 characters').max(20),
   description: z.string().max(500).optional(),
   copies: z.number().int().min(0, 'Cannot have negative copies'),
-  available: z.boolean().optional().default(true)
+  available: z.boolean()
 });
