@@ -62,7 +62,7 @@ export default function AllBooksPage() {
                 <td className="p-2">{book.isbn}</td>
                 <td className="p-2 text-center">{book.copies}</td>
                 <td className="p-2 text-center">
-                  {book.available ? (
+                  {book.available && book.copies > 0 ? (
                     <span className="text-green-600 font-medium">Yes</span>
                   ) : (
                     <span className="text-red-600 font-medium">No</span>
