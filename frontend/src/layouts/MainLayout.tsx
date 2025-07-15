@@ -3,10 +3,10 @@ import { Outlet } from 'react-router-dom'
 
 export default function MainLayout() {
   return (
-    <>
-      <div className="min-h-screen flex flex-col">
+    <div className='bg-amber-100'>
+      <div className="min-h-screen flex flex-col max-w-6xl mx-auto px-4">
         <Navbar />
-        <main className="flex-1 container py-4">
+        <main className="flex-1 container py-4 bg-amber-50 rounded-xl">
           <Outlet />
         </main>
         <footer className="py-4 border-t">
@@ -15,6 +15,6 @@ export default function MainLayout() {
           </div>
         </footer>
       </div>
-    </>
+    </div>
   )
 }

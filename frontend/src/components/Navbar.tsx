@@ -14,6 +14,7 @@ export default function Navbar() {
       <nav className="container flex items-center gap-4 py-3">
         {routes.map((route) => (
           <Button
+            className='bg-amber-200 hover:bg-amber-300 cursor-pointer'
             key={route.path}
             asChild
             variant={pathname === route.path ? 'secondary' : 'ghost'}

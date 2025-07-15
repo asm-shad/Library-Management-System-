@@ -82,7 +82,7 @@ const BorrowBookPage = () => {
   const maxQuantity = data?.data.copies ?? 1;
 
   return (
-    <div className="max-w-lg mx-auto p-6 bg-white rounded-xl shadow">
+    <div className="max-w-lg mx-auto p-6 bg-amber-100 rounded-xl shadow">
       <h1 className="text-2xl font-semibold mb-6">Borrow Book</h1>
 
       <p className="mb-4">
@@ -133,7 +133,7 @@ const BorrowBookPage = () => {
             )}
           />
 
-          <Button type="submit" className="w-full" disabled={isBorrowing}>
+          <Button type="submit" className="w-full bg-amber-300 hover:bg-amber-400 cursor-pointer" disabled={isBorrowing}>
             {isBorrowing ? 'Borrowing...' : 'Borrow Book'}
           </Button>
         </form>

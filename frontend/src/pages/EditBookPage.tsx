@@ -88,7 +88,7 @@ const EditBookPage = () => {
   if (error) return <div>Error loading book data.</div>;
 
   return (
-    <div className="max-w-xl mx-auto p-6 bg-white rounded-xl shadow">
+    <div className="max-w-xl mx-auto p-6 bg-amber-100 rounded-xl shadow">
       <h1 className="text-2xl font-semibold mb-6">Edit Book</h1>
 
       <Form {...form}>
@@ -133,13 +133,13 @@ const EditBookPage = () => {
                       <SelectValue placeholder="Select genre" />
                     </SelectTrigger>
                   </FormControl>
-                  <SelectContent>
-                    <SelectItem value="FICTION">Fiction</SelectItem>
-                    <SelectItem value="NON_FICTION">Non-Fiction</SelectItem>
-                    <SelectItem value="SCIENCE">Science</SelectItem>
-                    <SelectItem value="HISTORY">History</SelectItem>
-                    <SelectItem value="BIOGRAPHY">Biography</SelectItem>
-                    <SelectItem value="FANTASY">Fantasy</SelectItem>
+                  <SelectContent className='bg-amber-200'>
+                    <SelectItem className='cursor-pointer border-1' value="FICTION">Fiction</SelectItem>
+                    <SelectItem className='cursor-pointer border-1 border-t-0' value="NON_FICTION">Non-Fiction</SelectItem>
+                    <SelectItem className='cursor-pointer border-1 border-t-0' value="SCIENCE">Science</SelectItem>
+                    <SelectItem className='cursor-pointer border-1 border-t-0' value="HISTORY">History</SelectItem>
+                    <SelectItem className='cursor-pointer border-1 border-t-0' value="BIOGRAPHY">Biography</SelectItem>
+                    <SelectItem className='cursor-pointer border-1 border-t-0' value="FANTASY">Fantasy</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
@@ -215,7 +215,7 @@ const EditBookPage = () => {
             )}
           />
 
-          <Button type="submit" className="w-full" disabled={isUpdating}>
+          <Button type="submit" className="w-full bg-amber-300 hover:bg-amber-400 cursor-pointer" disabled={isUpdating}>
             {isUpdating ? 'Updating...' : 'Update Book'}
           </Button>
         </form>

@@ -7,7 +7,7 @@ const BorrowSummaryPage = () => {
   if (error) return <div>Failed to load borrow summary.</div>;
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white rounded-xl shadow">
+    <div className="mx-auto p-6 bg-amber-100 rounded-xl shadow">
       <h1 className="text-2xl font-semibold mb-6">Borrow Summary</h1>
       <table className="w-full table-auto border-collapse border border-gray-300">
         <thead>

@@ -10,16 +10,19 @@ export default function AllBooksPage() {
   const [deleteBook] = useDeleteBookMutation()
 
   const handleDelete = async (id: string) => {
-    const confirm = window.confirm('Are you sure you want to delete this book?')
-    if (!confirm) return
-
-    try {
-      await deleteBook(id).unwrap()
-      toast.success('Book deleted successfully')
-    } catch {
-      toast.error('Failed to delete book')
-}
-
+    toast.warning('Are you sure you want to delete this book?', {
+      action: {
+        label: 'Delete',
+        onClick: async () => {
+          try {
+            await deleteBook(id).unwrap()
+            toast.success('Book deleted successfully')
+          } catch {
+            toast.error('Failed to delete book')
+          }
+        },
+      },
+    })
   }
 
   if (isLoading) {
@@ -31,10 +34,10 @@ export default function AllBooksPage() {
   }
 
   return (
-    <div>
+    <div className="max-w-6xl mx-auto px-4 bg-amber-50">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-semibold">All Books</h2>
-        <Button onClick={() => navigate('/create-book')}>Add New Book</Button>
+        <Button className='bg-amber-200 hover:bg-amber-300 cursor-pointer' onClick={() => navigate('/create-book')}>Add New Book</Button>
       </div>
 
       <div className="overflow-auto rounded-lg shadow">
@@ -66,24 +69,26 @@ export default function AllBooksPage() {
                   )}
                 </td>
                 <td className="p-2 space-x-2 text-center">
-                  <Button size="sm" onClick={() => navigate(`/books/${book._id}`)}>
+                  <Button className='cursor-pointer hover:bg-green-100' size="sm" onClick={() => navigate(`/books/${book._id}`)}>
                     View
                   </Button>
                   <Button
                     size="sm"
                     variant="outline"
+                    className='cursor-pointer'
                     onClick={() => navigate(`/edit-book/${book._id}`)}
                   >
                     Edit
                   </Button>
                   <Button
                     size="sm"
-                    variant="destructive"
+                    variant="ghost"
+                    className="text-red-600 hover:bg-red-100 cursor-pointer"
                     onClick={() => handleDelete(book._id)}
                   >
                     Delete
                   </Button>
-                  <Button size="sm" onClick={() => navigate(`/borrow/${book._id}`)}>
+                  <Button size="sm" variant="outline" className='cursor-pointer' onClick={() => navigate(`/borrow/${book._id}`)}>
                     Borrow
                   </Button>
                 </td>

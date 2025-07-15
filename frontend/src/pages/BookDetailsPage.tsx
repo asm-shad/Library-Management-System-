@@ -32,8 +32,8 @@ const BookDetailsPage = () => {
       )}
 
       <div className="flex space-x-3 mt-6">
-        <Button onClick={() => navigate(`/edit-book/${book._id}`)}>Edit</Button>
-        <Button variant="outline" onClick={() => navigate('/books')}>
+        <Button onClick={() => navigate(`/edit-book/${book._id}`)} className='bg-green-100 hover:bg-green-300 cursor-pointer'>Edit</Button>
+        <Button variant="outline" onClick={() => navigate('/books')} className='cursor-pointer bg-amber-100 hover:bg-amber-300'>
           Back to List
         </Button>
       </div>
