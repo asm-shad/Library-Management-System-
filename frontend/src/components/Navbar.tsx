@@ -10,7 +10,7 @@ export default function Navbar() {
   ]
 
   return (
-    <header className="border-b">
+    <header className="border-b flex justify-between items-center">
       <nav className="container flex items-center gap-4 py-3">
         {routes.map((route) => (
           <Button
@@ -23,6 +23,10 @@ export default function Navbar() {
           </Button>
         ))}
       </nav>
+      <Link to="/" className="flex items-center gap-2 text-xl font-bold text-amber-900">
+        <img src="../../public/library.png" alt="Logo" className="w-6 h-6" />
+        LMS
+      </Link>
     </header>
   )
 }

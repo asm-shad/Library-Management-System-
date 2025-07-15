@@ -6,6 +6,9 @@ export default function MainLayout() {
     <div className='bg-amber-100'>
       <div className="min-h-screen flex flex-col max-w-6xl mx-auto px-4">
         <Navbar />
+        <h1 className="text-5xl font-extrabold text-center text-amber-800 drop-shadow-sm py-6">
+          Library<span className="text-amber-600">Hub</span> 📚
+        </h1>
         <main className="flex-1 container py-4 bg-amber-50 rounded-xl">
           <Outlet />
         </main>

@@ -69,13 +69,13 @@ export default function AllBooksPage() {
                   )}
                 </td>
                 <td className="p-2 space-x-2 text-center">
-                  <Button className='cursor-pointer hover:bg-green-100' size="sm" onClick={() => navigate(`/books/${book._id}`)}>
+                  <Button className='cursor-pointer hover:bg-green-100 shadow-md' size="sm" onClick={() => navigate(`/books/${book._id}`)}>
                     View
                   </Button>
                   <Button
                     size="sm"
                     variant="outline"
-                    className='cursor-pointer'
+                    className='cursor-pointer bg-amber-50 hover:bg-amber-200'
                     onClick={() => navigate(`/edit-book/${book._id}`)}
                   >
                     Edit
@@ -83,12 +83,12 @@ export default function AllBooksPage() {
                   <Button
                     size="sm"
                     variant="ghost"
-                    className="text-red-600 hover:bg-red-100 cursor-pointer"
+                    className="text-red-600 shadow-md hover:bg-red-100 cursor-pointer"
                     onClick={() => handleDelete(book._id)}
                   >
                     Delete
                   </Button>
-                  <Button size="sm" variant="outline" className='cursor-pointer' onClick={() => navigate(`/borrow/${book._id}`)}>
+                  <Button size="sm" variant="outline" className='cursor-pointer bg-amber-100 hover:bg-amber-300' onClick={() => navigate(`/borrow/${book._id}`)}>
                     Borrow
                   </Button>
                 </td>
